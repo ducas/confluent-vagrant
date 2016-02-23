@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# USAGE: run-kafka.sh [ipaddress] [brokerid]
+# USAGE: run-schemaregistry.sh [ipaddress]
 
 #port=8081
 #host.name=$1

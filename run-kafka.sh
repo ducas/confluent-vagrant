@@ -2,6 +2,10 @@
 
 # USAGE: run-kafka.sh [ipaddress] [brokerid]
 
+#advertised.host.name=$1
+#broker.id=$2
+#zookeeper.connect=...
+
 sed -i '/^advertised\.host\.name=/d' /etc/kafka/server.properties
 echo "advertised.host.name=$1" >> /etc/kafka/server.properties
 

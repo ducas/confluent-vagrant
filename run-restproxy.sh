@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# USAGE: run-kafka.sh [ipaddress] [brokerid]
+# USAGE: run-restproxy.sh [ipaddress] [brokerid]
 
 #host.name=$1
 #id=$2

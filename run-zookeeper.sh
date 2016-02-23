@@ -2,14 +2,15 @@
 
 # USAGE: run-zookeeper.sh [brokerid]
 
+#server.xx=xx:2888:3888
+#initLimit=5
+#syncLimit=2
+
 sed -i '/^server\..*/d' /etc/kafka/zookeeper.properties
 echo "server.11=192.168.32.11:2888:3888" >> /etc/kafka/zookeeper.properties
 echo "server.12=192.168.32.12:2888:3888" >> /etc/kafka/zookeeper.properties
 echo "server.13=192.168.32.13:2888:3888" >> /etc/kafka/zookeeper.properties
 
-#tickTime=2000
-#dataDir=/var/zookeeper
-#clientPort=2181
 sed -i '/^initLimit=/d' /etc/kafka/zookeeper.properties
 echo "initLimit=5" >> /etc/kafka/zookeeper.properties
 sed -i '/^syncLimit=/d' /etc/kafka/zookeeper.properties
