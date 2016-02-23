@@ -9,6 +9,6 @@ sed -i '/^broker\.id=/d' /etc/kafka/server.properties
 echo "broker.id=$2" >> /etc/kafka/server.properties
 
 sed -i '/^zookeeper\.connect=/d' /etc/kafka/server.properties
-echo "zookeeper.connect=192.168.32.10:2181" >> /etc/kafka/server.properties
+echo "zookeeper.connect=192.168.32.11:2181,192.168.32.12:2181,192.168.32.13:2181" >> /etc/kafka/server.properties
 
 kafka-server-start -daemon /etc/kafka/server.properties

@@ -3,9 +3,9 @@
 # USAGE: run-zookeeper.sh [brokerid]
 
 sed -i '/^server\..*/d' /etc/kafka/zookeeper.properties
-echo "server.1=192.168.32.11:2888:3888" >> /etc/kafka/zookeeper.properties
-echo "server.2=192.168.32.12:2888:3888" >> /etc/kafka/zookeeper.properties
-echo "server.3=192.168.32.13:2888:3888" >> /etc/kafka/zookeeper.properties
+echo "server.11=192.168.32.11:2888:3888" >> /etc/kafka/zookeeper.properties
+echo "server.12=192.168.32.12:2888:3888" >> /etc/kafka/zookeeper.properties
+echo "server.13=192.168.32.13:2888:3888" >> /etc/kafka/zookeeper.properties
 
 #tickTime=2000
 #dataDir=/var/zookeeper
