@@ -2,11 +2,6 @@
 # vi: set ft=ruby :
 
 builds = {
-  'base' => {
-    ip: "192.168.32.2",
-    role: "base",
-    memory: "1024"
-  },
   'zk-1' => {
     id: "11",
     ip: "192.168.32.11",
@@ -56,9 +51,7 @@ builds = {
 }
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/trusty64" # "ducas/confluent"
-  # config.ssh.username = 'vagrant'
-  # config.ssh.password = 'vagrant'
+  config.vm.box = "ducas/confluent"
   
   builds.each_pair do |name, opts|
 
@@ -71,12 +64,6 @@ Vagrant.configure(2) do |config|
       end
 
       case opts[:role]
-      when "base"
-        guest.vm.provision "shell", inline: <<-SHELL
-          wget -qO - http://packages.confluent.io/deb/1.0/archive.key | sudo apt-key add -
-          sudo add-apt-repository "deb [arch=all] http://packages.confluent.io/deb/1.0 stable main"
-          sudo apt-get update && sudo apt-get install -y --force-yes openjdk-7-jdk confluent-platform-2.11.5
-        SHELL
       when "kafka"
         guest.vm.provision :shell, run: "always", :path => "run-kafka.sh", :args => "#{opts[:ip]} #{opts[:id]}"
       when "zookeeper"
