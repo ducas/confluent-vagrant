@@ -39,12 +39,12 @@ builds = {
     memory: "1024"
   },
   'rp-1' => {
-    ip: "192.168.32.21",
+    ip: "192.168.32.31",
     role: "restproxy",
     memory: "1024"
   },
   'rp-2' => {
-    ip: "192.168.32.21",
+    ip: "192.168.32.32",
     role: "restproxy",
     memory: "1024"
   }
@@ -68,6 +68,9 @@ Vagrant.configure(2) do |config|
         guest.vm.provision :shell, run: "always", :path => "run-kafka.sh", :args => "#{opts[:ip]} #{opts[:id]}"
       when "zookeeper"
         guest.vm.provision :shell, run: "always", :path => "run-zookeeper.sh", :args => "#{opts[:id]}"
+      when "restproxy"
+        guest.vm.provision :shell, run: "always", :path => "run-schemaregistry.sh", :args => "#{opts[:ip]}"
+        guest.vm.provision :shell, run: "always", :path => "run-restproxy.sh", :args => "#{opts[:ip]} #{opts[:id]}"
       end
 
     end
